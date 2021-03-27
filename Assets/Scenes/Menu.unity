@@ -2774,7 +2774,6 @@ GameObject:
   - component: {fileID: 195634828}
   - component: {fileID: 195634827}
   - component: {fileID: 195634826}
-  - component: {fileID: 195634829}
   m_Layer: 5
   m_Name: Start Game
   m_TagString: Untagged
@@ -2854,7 +2853,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Start
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &195634827
@@ -2895,18 +2894,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195634824}
   m_CullTransparentMesh: 0
---- !u!114 &195634829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 195634824}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 205b6dc526047d54db1dd509db0b55fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &199081275
 GameObject:
   m_ObjectHideFlags: 0
@@ -7987,7 +7974,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Quit
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &601769240
@@ -10343,7 +10330,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.20500001, y: 0.30400002}
   m_AnchorMax: {x: 0.81000006, y: 0.7216645}
-  m_AnchoredPosition: {x: -1.4964867, y: 0.8999939}
+  m_AnchoredPosition: {x: -1.4964943, y: 0.8999939}
   m_SizeDelta: {x: -0.15292358, y: 2.2150574}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &831508687
@@ -20621,7 +20608,7 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 23.85
+  m_fontSize: 25
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -24389,7 +24376,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Options
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1950303345
@@ -26648,3 +26635,60 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2138920963}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &4086106659912735331
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4086106660219691304, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_Name
+      value: Samurai
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086106660219691311, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086106660219691311, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.975
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086106660219691311, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086106660219691311, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086106660219691311, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086106660219691311, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086106660219691311, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086106660219691311, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086106660219691311, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086106660219691311, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4086106660219691311, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 64c90efc00f02874abed5e6885b5b88c, type: 3}

@@ -3,17 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public static MenuManager instance { get { return instance_; } }
-    private static MenuManager instance_;
-
-    void Awake()
+    public void ButtonInteraction(string selection)
     {
-        instance_ = this;
-    }
-
-    public void ButtonInteraction(string a)
-    {
-        switch (a)
+        switch (selection)
         {
             case "Start":
                 SceneManager.LoadScene(1);
