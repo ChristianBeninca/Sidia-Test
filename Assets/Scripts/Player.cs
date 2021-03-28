@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    int healthPoints;
-    int attackPoints;
-    string name;
+    public string charName;
+    public int health;
+    public int attack;
+    public int idPosition;
 
-    public Player(string name, int hp, int ap )
+    public Player(string name, int hp, int ap, int pos)
     {
-        healthPoints = hp;
-        attackPoints = ap;
-        this.name = name;
+        charName = name;
+        health = hp;
+        attack = ap;
+        idPosition = pos;
     }
 }

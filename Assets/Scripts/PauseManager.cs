@@ -24,25 +24,22 @@ public class PauseManager : MonoBehaviour
         switch (selection)
         {
             case "Samurai":
-                Debug.Log("Samurai");
                 health = 50;
                 attack = 3;
                 break;
             case "Ronin":
-                Debug.Log("Ronin");
                 health = 40;
                 attack = 4;
                 break;
             case "Ninja":
-                Debug.Log("Ninja");
                 health = 30;
                 attack = 5;
                 break;
         }
         if (!string.IsNullOrEmpty(charName.text))
         {
-        GameManager.instance.PopulatePlayerVariables(charName.text, health, attack);
-        chooseRole.SetActive(false);
+            GameManager.instance.PopulatePlayerVariables(charName.text, health, attack);
+            chooseRole.SetActive(false);
         }
     }
 
