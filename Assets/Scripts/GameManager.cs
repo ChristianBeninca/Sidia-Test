@@ -1,19 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance { get { return instance_; } }
     private static GameManager instance_;
+ 
+    public static int boardSize;
+    public static int num_Players;
+    public int playerTurn = 1;
+    public int firstRound;
+    public GameObject w_Cube, b_Cube, tkn_Samurai;
+    public InputField charName;
+    public PauseManager pauseManager;
+    
+    GameObject obj_Player1, obj_Player2;
+
+    //player 1
+    public string p1_Name;
+    public int p1_Health;
+    public int p1_Attack;
+
+    //player 2
+    public string p2_Name;
+    public int p2_Health;
+    public int p2_Attack;
+
     void Awake()
     {
         instance_ = this;
+        firstRound = num_Players;
     }
 
-    public int boardSize;
-    public GameObject w_Cube, b_Cube;
-    // Start is called before the first frame update
     void Start()
     {
         if (boardSize > 128) boardSize = 128;
@@ -21,10 +41,35 @@ public class GameManager : MonoBehaviour
         GenerateBoard(boardSize);
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public void PopulatePlayerVariables(string name, int health, int attack)
     {
-        
+        if (playerTurn == 1) 
+        {
+            p1_Name = name;
+            p1_Health = health;
+            p1_Attack = attack;
+        }
+        else if (playerTurn == 2)
+        {
+            p2_Name = name;
+            p2_Health = health;
+            p2_Attack = attack;
+        }
+    }
+
+    public void ChooseSpawn(Vector3 pos)
+    {
+        if (playerTurn == 1)
+        {
+            obj_Player1 = Instantiate(tkn_Samurai, new Vector3(pos.x, 0.975f, pos.z), Quaternion.identity);
+            ChangeTurn();
+        }
+        else if (playerTurn == 2)
+        {
+            obj_Player2 = Instantiate(tkn_Samurai, new Vector3(pos.x, 0.975f, pos.z), Quaternion.identity);
+            ChangeTurn();
+        }
     }
 
     void GenerateBoard(int boarSize)
@@ -35,14 +80,20 @@ public class GameManager : MonoBehaviour
         float z = size * -1 + 0.5f;
         bool dir = true;
 
-        for (int i = 0; i < Mathf.Pow(boarSize, 2); i++)
+        GameObject boardBase = Instantiate(b_Cube, new Vector3(0, -0.1f, 0), Quaternion.identity);
+        boardBase.gameObject.GetComponent<BoxCollider>().enabled = false;
+        boardBase.transform.localScale = new Vector3(boardSize + 0.3f, 1, boardSize  + 0.3f);
+
+
+        for (int i = 1; i <= Mathf.Pow(boarSize, 2); i++)
         {
 
-            Instantiate(cube,new Vector3 (x, 0, z), Quaternion.identity);
+            GameObject tile = Instantiate(cube, new Vector3(x, 0, z), Quaternion.identity);
+            tile.GetComponent<Tiles>().id = i;
 
             if (dir)
             {
-                if(x < size - 0.5f)
+                if (x < size - 0.5f)
                 {
                     x++;
                 }
@@ -51,7 +102,7 @@ public class GameManager : MonoBehaviour
                     dir = !dir;
                     z++;
                 }
-            } 
+            }
             else if (!dir)
             {
                 if (x > -size + 0.5f)
@@ -65,10 +116,24 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-
-
-            if(cube == w_Cube)cube = b_Cube;
-            else if(cube == b_Cube)cube = w_Cube;
+            if (cube == w_Cube) cube = b_Cube;
+            else if (cube == b_Cube) cube = w_Cube;
         }
     }
+
+    void ChangeTurn()
+    {
+        if (firstRound >= 1)
+        {
+            firstRound--;
+            if (playerTurn == 1)
+            {
+                pauseManager.ChooseRolePlayer2();
+            }
+        }
+
+        if (playerTurn == 1) playerTurn = 2;
+        else if (playerTurn == 2) playerTurn = 1;
+    }
+
 }
