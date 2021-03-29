@@ -63,18 +63,41 @@ public class Tiles : MonoBehaviour
         // After First Round
         else
         {
-            if (id == GameManager.instance.Player[GameManager.instance.playerTurn].GetComponent<Player>().idPosition - 1 ||
-                id == GameManager.instance.Player[GameManager.instance.playerTurn].GetComponent<Player>().idPosition + 1 ||
-                id == GameManager.instance.Player[GameManager.instance.playerTurn].GetComponent<Player>().idPosition - GameManager.boardSize ||
-                id == GameManager.instance.Player[GameManager.instance.playerTurn].GetComponent<Player>().idPosition + GameManager.boardSize)
+            if (GameManager.instance.playerTurn == 0)
             {
-                child.GetComponent<Renderer>().material.color = Color.green;
-                canMove = true;
+
+                if ((id == GameManager.instance.Player[0].GetComponent<Player>().idPosition - 1 ||
+                    id == GameManager.instance.Player[0].GetComponent<Player>().idPosition + 1 ||
+                    id == GameManager.instance.Player[0].GetComponent<Player>().idPosition - GameManager.boardSize ||
+                    id == GameManager.instance.Player[0].GetComponent<Player>().idPosition + GameManager.boardSize) &&
+                    (id != GameManager.instance.Player[1].GetComponent<Player>().idPosition))
+                {
+                    child.GetComponent<Renderer>().material.color = Color.green;
+                    canMove = true;
+                }
+                else
+                {
+                    child.GetComponent<Renderer>().material.color = Color.red;
+                    canMove = false;
+                }
             }
-            else
+            if (GameManager.instance.playerTurn == 1)
             {
-                child.GetComponent<Renderer>().material.color = Color.red;
-                canMove = false;
+
+                if ((id == GameManager.instance.Player[1].GetComponent<Player>().idPosition - 1 ||
+                    id == GameManager.instance.Player[1].GetComponent<Player>().idPosition + 1 ||
+                    id == GameManager.instance.Player[1].GetComponent<Player>().idPosition - GameManager.boardSize ||
+                    id == GameManager.instance.Player[1].GetComponent<Player>().idPosition + GameManager.boardSize) &&
+                    (id != GameManager.instance.Player[0].GetComponent<Player>().idPosition))
+                {
+                    child.GetComponent<Renderer>().material.color = Color.green;
+                    canMove = true;
+                }
+                else
+                {
+                    child.GetComponent<Renderer>().material.color = Color.red;
+                    canMove = false;
+                }
             }
         }
         child.SetActive(true);
